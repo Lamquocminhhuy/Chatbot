@@ -1,0 +1,190 @@
+version: "2.0"
+
+nlu:
+  - intent: note
+    examples: |
+      - [không có](note)
+      - [ko có](note)
+      - [ko](note)
+      - [không có ghi chú](note)
+      - [gì cũng được](note)
+
+  - intent: name
+    examples: |
+      - [Khưu Nguyễn Hoàng Nam](name)
+      - [Phan Thị Huỳnh Như](name)
+      - [Nguyễn Văn Quy](name)
+      - [Nguyễn Văn A](name)
+      - [Lê Thị Vân Anh](name)
+
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - xin chào
+      - chào bạn
+      - chào buổi tối
+      - chào bot
+      - giúp mình với
+      - cho tôi hỏi
+      - alo
+      - chào buổi sáng
+      - ad ơi
+      - phòng khám ơi
+      - bạn ơi
+      - cháu ơi
+      - con ơi
+      - page ơi
+      - chị ơi
+      - cô ơi
+      - chào
+      - xin chào bạn
+      - xin chào ad
+      - anh ơi
+      - cho mình hỏi
+      - alo alo
+      - cho mình hỏi cái này
+      - bạn ơi bạn
+      - chào phòng khám
+      - chào ad
+      - mình xin chào bạn
+      - xin chào
+      - xin chào phòng khám
+      - chào ad nha
+      - cho mình hỏi là
+      - cho tôi hỏi
+      - alo alo
+      - chào bot nha
+      - bot ơi
+      - ad ơi cho mình hỏi
+
+  - intent: goodbye
+    examples: |
+      - tạm biệt
+      - good bye
+      - xin tạm biệt
+      - gặp bạn sau nhé
+      - good night
+      - bye
+      - goodbye
+      - bye bye
+      - bai
+      - tạm biệt
+      - bye
+      - bye bye nha
+      - chào tạm biệt
+      - hẹn gặp lại nha
+      - gặp lại sau
+      - hẹn gặp vào ngày mai
+      - goodbye
+      - xin chào tạm biệt
+      - tạm biệt bạn nha
+      - bye ad
+      - bye bot
+
+  - intent: bot_challenge
+    examples: |
+      - Chatbot hay gì dạ?
+      - Phải là chatbot hong dị?
+      - Tui đang nói chuyện với bot hả ta
+      - Hình như là chatbot thì phải
+
+  - intent: ask_worktime
+    examples: |
+      - lịch làm việc của garage thế nào
+      - garage làm việc những ngày nào
+      - thời gian làm việc sao
+      - giờ làm việc sao
+      - garage mấy giờ mở cửa
+      - garage mở cửa mấy giờ
+      - thứ 7 chủ nhật có làm không
+      - cho xin lịch làm việc
+      - giờ làm việc của garage
+      - lịch garage như nào
+      - garage mình có lịch chủ nhật không
+      - lịch làm việc của nha khoa mình ra sao
+      - giờ làm việc của garage như thế nào
+      - giờ mở cửa của garage
+      - garage đóng cửa vào lúc mấy giờ
+
+  - intent: ask_advise
+    examples: |
+      - tôi muốn được tư vấn
+      - tư vấn giùm tôi với
+      - tư vấn
+      - tôi cần tư vấn
+      - mình cần được tư vấn
+      - có thể giúp mình tư vấn được không
+      - tư vấn về dịch vụ cho mình
+      - bạn có tư vấn cho mình về dịch vụ được không
+
+  - intent: ask_service
+    examples: |
+      - bên mình có những dịch vụ nào ạ?
+      - cho tôi hỏi về các dịch vụ của garage
+      - bên garage có bao nhiêu dịch vụ
+      - có tất cả các dịch vụ nào
+      - dịch vụ nào
+      - có bao nhiêu dịch vụ
+
+  - intent: ask_price
+    examples: |
+      - giá dịch vụ [bảo trì tổng quát](price) là bao nhiêu?
+      - giá dịch vụ [thay thế](price) bao nhiêu tiền?
+      - giá dịch vụ [thay lốp](price) sao vậy ạ?
+      - giá dịch vụ [cân chỉnh bánh lái](price) sao?
+      - giá dịch vụ [sửa chữa hệ thống nhiên liệu](price) sao?
+      - giá dịch vụ [điều chỉnh](price) sao?
+
+  - intent: thank
+    examples: |
+      - thank you
+      - thank u
+      - cảm ơn
+      - xin cảm ơn
+      - cám ơn
+      - Cám ơn ad
+      - thanks
+      - Cám ơn đã hỗ trợ mình nhe
+
+  - intent: email_phone
+    examples: |
+      - [nam123@gmail.com](email)
+      - [huynguyen@gmail.com](email)
+      - [Test@gmail.com](email)
+      - [est@abc.com](email)
+      - [123@zyx.com](email)
+      - [nh@dd.com](email)
+      - Địa chỉ email của mình là [est@abc.com](email)
+      - Liên hệ với mình qua email [example@gamil.com](email)
+
+  - intent: phone
+    examples: |
+      - số điện thoại của mình là [012344567](phone)
+      - số điện thoại của tôi là [0798412647](phone)
+      - gọi cho tôi vào số này [0126745388](phone)
+      - số này [028523958239](phone) nhá
+
+  - intent: request_book
+    examples: |
+      - mình muốn đặt lịch hẹn sữa chữa
+      - đặt lịch
+      - hẹn sữa chữa
+      - hẹn sửa chữa
+      - cho mình đặt lịch
+      - cho mình đặt lịch hẹn
+
+  - intent: date_time
+    examples: |
+      - Mình đến vào [8 giờ](time) ngày [25/09/2022](date) nha.
+      - Vào [10 giờ](time) ngày [25/09/2022](date) ạ.
+      - [9 giờ](time) ngày [25/09/2022](date).
+      - Tôi sẽ đến lúc [11 giờ](time) ngày [26/09/2022](date).
+
+  - intent: out_of_the_box
+    examples: |
+      - 1 + 1 bằng mấy?
+      - Bánh pizza ở đâu?
+      - Ironman là ai?
+      - Rượu chuối hột là gì?

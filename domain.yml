@@ -1,0 +1,128 @@
+version: "2.0"
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+  - note
+  - greet
+  - goodbye
+  - bot_challenge
+  - ask_worktime
+  - ask_advise
+  - ask_service
+  - ask_price
+  - thank
+  - phone
+  - request_book
+  - out_of_the_box
+  - date_time
+  - email_phone
+  - name
+
+responses:
+  utter_greet:
+    - text: "Xin chào garage có thể hỗ trợ gì cho quý khách ạ"
+
+  utter_ask_name:
+    - text: "Quý khách vui lòng cho em xin họ tên ạ. "
+
+  utter_ask_contact:
+    - text: "Cho em xin email và số điện thoại của quý khách ạ."
+
+  utter_ask_service:
+    - text: "Quý khách muốn đặt lịch cho dịch vụ nào ạ?"
+
+  utter_ask_time:
+    - text: "Cho em xin thêm thời gian quý khách định đến garage ạ."
+
+  utter_slots_values:
+    - text: |
+        Em xin chốt lại thông tin đặt lịch của quý khách:
+        - Tên khách hàng: { name }
+        - Ngày đặt: { date }
+        - Dịch vụ: { service }
+        - Email: { email }
+        - SĐT: { phone }
+
+  utter_ans_service:
+    - text: |
+        Sửa chửa và thay thế lốp xe thuộc các thương hiệu lốp cao cấp hàng đầu đến từ Đức. Thời gian ước tính của dịch vụ này là khoảng 60 phút.
+        Anh chị cần hỗ trợ thêm gì không ạ?
+
+  utter_ans_worktime:
+    - text: |
+        Thời gian làm việc của garage chúng tôi từ 8h đến 5h hàng ngày. 
+        Phục vụ cả vào thứ 7 và Chủ Nhật ạ.
+
+  utter_ans_price:
+    - text: "Giá của dịch vụ là 60.000 VND."
+    - text: "Gía của dịch vụ là 120.000 VND."
+
+  utter_goodbye:
+    - text: "Garage xin chào và cảm ơn quý khách."
+
+  utter_iamabot:
+    - text: "Mình là chatbot được tạo nên từ Rasa."
+    - text: "Tôi là chatbot để hỗ trợ bạn."
+
+  utter_out_of_scope:
+    - text: "Xin lỗi em chưa hiểu ý của quý khách."
+    - text: "Em chưa hiểu ý của quý khách. Quý khách có thể giải thích lại không ạ?"
+
+actions:
+  - action_ask_services
+  - action_ans_price
+
+
+    
+entities:
+  - price
+
+# forms:
+#   booking_form:
+#     required_slots:
+#       name:
+#       - type: from_entity
+#         entity: name
+#       email:
+#       - type: from_entity
+#         entity: email
+#       service:
+#       - type: from_entity
+#         entity: service
+#       date:
+#       - type: from_entity
+#         entity: date
+#       time:
+#       - type: from_entity
+#         entity: time
+#       phone:
+#       - type: from_entity
+#         entity: phone
+
+# slots:
+#   name:
+#     type: text
+#     auto_fill: false
+#     influence_conversation: false
+#   email:
+#     type: text
+#     auto_fill: false
+#     influence_conversation: false
+#   service:
+#     type: text
+#     auto_fill: false
+#     influence_conversation: false
+#   date:
+#     type: text
+#     auto_fill: false
+#     influence_conversation: false
+#   time:
+#     type: text
+#     auto_fill: false
+#     influence_conversation: false
+#   phone:
+#     type: text
+#     auto_fill: false
+#     influence_conversation: false

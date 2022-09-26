@@ -1,0 +1,36 @@
+version: "2.0"
+
+rules:
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+  - rule: Say 'I am a bot' anytime the user challenges
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  - rule: out-of-scope
+    steps:
+      - intent: out_of_the_box
+      - action: utter_out_of_scope
+
+  - rule: ask_service
+    steps:
+      - intent: ask_service
+      - action: action_ask_services
+
+  - rule: ask_price
+    steps:
+      - intent: ask_price
+      - action: action_ans_price
+
+  - rule: ask_worktime
+    steps:
+      - intent: ask_worktime
+      - action: utter_ans_worktime
+
+  - rule: Greet
+    steps:
+      - intent: greet
+      - action: utter_greet
