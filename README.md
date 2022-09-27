@@ -23,8 +23,8 @@ pip3 install sanic-jwt==1.6.0
 Links: https://forum.rasa.com/t/rasa-x-runs-with-several-errors-warnings/49006/8
 
 ### Featured
-1. Get services
-2. Get time working
-3. Get specific services information
+1. Ask all services
+2. Get time working of garage
+3. Get specific services information (description, price, time_todo)
 4. Chitchat
 5. Booking (in progress)

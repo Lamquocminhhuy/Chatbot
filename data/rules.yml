@@ -1,11 +1,17 @@
 version: "2.0"
 
 rules:
-  - rule: Say goodbye anytime the user says goodbye
+  - rule: Greet
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Goodbye
     steps:
       - intent: goodbye
       - action: utter_goodbye
-  - rule: Say 'I am a bot' anytime the user challenges
+
+  - rule: I'm Rasa
     steps:
       - intent: bot_challenge
       - action: utter_iamabot
@@ -29,8 +35,14 @@ rules:
     steps:
       - intent: ask_worktime
       - action: utter_ans_worktime
-
-  - rule: Greet
+  
+  - rule: ask_service_time
     steps:
-      - intent: greet
-      - action: utter_greet
+      - intent: ask_service_time
+      - action: action_ans_service_time
+  
+  - rule: ask_service_details
+    steps:
+      - intent: ask_service_details
+      - action: action_ans_service_detail
+

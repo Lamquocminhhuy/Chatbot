@@ -15,6 +15,11 @@
             window.WebChat.default(
               {
                 customData: { language: "vi" },
+                title: "Tư Vấn Viên",
+                showMessageDate: true,
+                inputTextFieldHint:"",
+                subtitle:"Rất hân hạnh được hỗ trợ quý khách",
+                
 
                 // add other props here
                 socketUrl: "http://localhost:5005",
@@ -22,8 +27,10 @@
               null
             );
           }),
+      
           t.insertBefore(e, t.firstChild);
-      })();
+      })(); 
+      localStorage.clear();
     </script>
   </body>
 </html>

@@ -12,8 +12,12 @@ import requests
 # print(text)
 
 ### Get information of service
-service = "căn chỉnh"
-response = requests.get("https://canthogarage.pythonanywhere.com/api/service/" + service).json()
 
+service = "thay lốp xe"
 
-print(response)
+response = requests.get("https://canthogarage.pythonanywhere.com/api/service/" + service.replace("dịch vụ", "").strip()  )
+print(response.json()['status'])
+
+if (response.status_code) == 200:
+    responseData = response.json()
+    print(responseData)

@@ -119,6 +119,24 @@ nlu:
       - tư vấn về dịch vụ cho mình
       - bạn có tư vấn cho mình về dịch vụ được không
 
+  - intent: ask_service_details
+    examples: |
+      - cho mình hỏi dịch vụ [sơn xe](service_detail) là làm gì?
+      - cho mình hỏi dịch vụ [bảo trì tổng quát](service_detail) là làm gì?
+      - cho mình hỏi dịch vụ [sửa chữa và thay thế](service_detail) là làm gì?
+      - cho mình hỏi dịch vụ [vá lốp xe](service_detail) là làm gì?
+      - cho mình hỏi dịch vụ [căn chỉnh bánh lái](service_detail) là làm gì?
+      - cho mình hỏi dịch vụ [điều chỉnh](service_detail) là làm gì?
+      - [điều chỉnh](service_detail) là làm gì?
+      
+  - intent: ask_service_time
+    examples: |
+      - cho mình hỏi dịch vụ [sơn xe](service_time) thì làm khoảng bao lâu là xong?
+      - dịch vụ [bảo trì tổng quát](service_time) cỡ bao nhiêu [phút](time_unit) là xong?
+      - dịch vụ [vá lốp xe](service_time) thì làm khoảng mấy [tiếng](time_unit) ạ
+      - dịch vụ [điều chỉnh] làm có lâu không?
+      - dịch vụ [sửa chữa và thay thế](service_time) có tốn thời gian không?
+
   - intent: ask_service
     examples: |
       - bên mình có những dịch vụ nào ạ?
@@ -127,6 +145,7 @@ nlu:
       - có tất cả các dịch vụ nào
       - dịch vụ nào
       - có bao nhiêu dịch vụ
+      - cho mình hỏi garage có những dịch vụ gì ạ
 
   - intent: ask_price
     examples: |
@@ -134,7 +153,7 @@ nlu:
       - giá dịch vụ [thay thế](price) bao nhiêu tiền?
       - giá dịch vụ [thay lốp](price) sao vậy ạ?
       - giá dịch vụ [cân chỉnh bánh lái](price) sao?
-      - giá dịch vụ [sửa chữa hệ thống nhiên liệu](price) sao?
+      - giá dịch vụ [sơn xe](price) sao?
       - giá dịch vụ [điều chỉnh](price) sao?
 
   - intent: thank

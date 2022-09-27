@@ -4,7 +4,6 @@ session_config:
   carry_over_slots_to_new_session: true
 
 intents:
-  - note
   - greet
   - goodbye
   - bot_challenge
@@ -13,12 +12,11 @@ intents:
   - ask_service
   - ask_price
   - thank
-  - phone
   - request_book
   - out_of_the_box
-  - date_time
   - email_phone
-  - name
+  - ask_service_details
+  - ask_service_time
 
 responses:
   utter_greet:
@@ -70,9 +68,12 @@ responses:
     - text: "Xin lỗi em chưa hiểu ý của quý khách."
     - text: "Em chưa hiểu ý của quý khách. Quý khách có thể giải thích lại không ạ?"
 
+
 actions:
   - action_ask_services
   - action_ans_price
+  - action_ans_service_time
+  - action_ans_service_detail
 
 
     
