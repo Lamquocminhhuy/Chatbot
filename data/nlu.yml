@@ -12,10 +12,13 @@ nlu:
   - intent: name
     examples: |
       - Tên của mình là [Khưu Nguyễn Hoàng Nam](name)
+      - Tên mình [Nguyễn Văn Hoàng Anh](name) ạ
+      - Mình tên [Nguyễn Thị Nam Như](name)
       - [Phan Thị Huỳnh Như](name)
       - [Nguyễn Văn Quy](name)
       - [Nguyễn Văn A](name)
       - [Lê Thị Vân Anh](name)
+      
 
   - intent: greet
     examples: |
@@ -32,7 +35,6 @@ nlu:
       - alo
       - chào buổi sáng
       - ad ơi
-      - phòng khám ơi
       - bạn ơi
       - cháu ơi
       - con ơi
@@ -47,17 +49,13 @@ nlu:
       - alo alo
       - cho mình hỏi cái này
       - bạn ơi bạn
-      - chào phòng khám
       - chào ad
       - mình xin chào bạn
       - xin chào
-      - xin chào phòng khám
       - chào ad nha
       - cho mình hỏi là
       - cho tôi hỏi
       - alo alo
-      - chào bot nha
-      - bot ơi
       - ad ơi cho mình hỏi
       - ê
 
@@ -94,13 +92,14 @@ nlu:
 
   - intent: ask_worktime
     examples: |
+      - gara mình làm việc lúc mấy giờ ạ
       - lịch làm việc của garage thế nào
       - garage làm việc những ngày nào
       - thời gian làm việc sao
       - giờ làm việc sao
       - garage mấy giờ mở cửa
       - garage mở cửa mấy giờ
-      - thứ 7 chủ nhật có làm không
+      - thứ 7 chủ nhật có làm không?
       - cho xin lịch làm việc
       - giờ làm việc của garage
       - lịch garage như nào
@@ -109,6 +108,7 @@ nlu:
       - giờ làm việc của garage như thế nào
       - giờ mở cửa của garage
       - garage đóng cửa vào lúc mấy giờ
+      - gala bên mình làm việc từ mấy giờ ạ
 
   - intent: ask_advise
     examples: |
@@ -123,27 +123,27 @@ nlu:
 
   - intent: ask_service_details
     examples: |
-      - cho mình hỏi dịch vụ [sơn xe](service_detail) là làm gì?
+      - cho mình hỏi dịch vụ [vệ sinh phanh](service_detail) là làm gì?
       - cho mình hỏi dịch vụ [bảo trì tổng quát](service_detail) là làm gì?
-      - cho mình hỏi dịch vụ [sửa chữa và thay thế](service_detail) là làm gì?
-      - cho mình hỏi dịch vụ [vá lốp xe](service_detail) là làm gì?
+      - cho mình hỏi dịch vụ [kiểm tra lốp xe](service_detail) là làm gì?
+      - cho mình hỏi dịch vụ [sửa chữa hệ thống dẫn động](service_detail) là làm gì?
       - cho mình hỏi dịch vụ [căn chỉnh bánh lái](service_detail) là làm gì?
-      - cho mình hỏi dịch vụ [điều chỉnh](service_detail) là làm gì?
-      - [điều chỉnh](service_detail) là làm gì?
-      - thế còn [thay thế lốp xe](service_detail)
+      - cho mình hỏi dịch vụ [hệ thống nhiên liệu](service_detail) là làm gì?
+      - [vệ sinh phanh](service_detail) là làm gì?
+      - thế còn [kiểm tra lốp xe](service_detail)
       - thế còn [bảo trì tổng quát](service_detail) thì sao?
-      - tư vấn cho mình dịch vụ [bảo trì tổng quát](service_detail)
-      - vậy dịch vụ [điều chỉnh](service_detail) là làm gì? 
+      - tư vấn cho mình dịch vụ [hệ thống nhiên liệu](service_detail)
+      - vậy dịch vụ [căn chỉnh bánh lái](service_detail) là làm gì? 
       
   - intent: ask_service_time
     examples: |
-      - cho mình hỏi dịch vụ [sơn xe](service_time) thì làm khoảng bao lâu là xong?
+      - cho mình hỏi dịch vụ [căn chỉnh bánh lái](service_time) thì làm khoảng bao lâu là xong?
       - dịch vụ [bảo trì tổng quát](service_time) cỡ bao nhiêu [phút](time_unit) là xong?
-      - dịch vụ [vá lốp xe](service_time) thì làm khoảng mấy [tiếng](time_unit) ạ
-      - dịch vụ [bảo trì tổng quát](service_time) cỡ bao nhiêu [giờ](time_unit) là xong?
-      - dịch vụ [vá lốp xe](service_time) thì làm khoảng mấy [giờ](time_unit) xong thế nhỉ?
-      - dịch vụ [điều chỉnh] làm có lâu không?
-      - dịch vụ [sửa chữa và thay thế](service_time) có tốn thời gian không?
+      - dịch vụ [hệ thống nhiên liệu](service_time) thì làm khoảng mấy [tiếng](time_unit) ạ
+      - dịch vụ [kiểm tra lốp xe](service_time) cỡ bao nhiêu [giờ](time_unit) là xong?
+      - dịch vụ [sửa chữa hệ thống dẫn động](service_time) thì làm khoảng mấy [giờ](time_unit) xong thế nhỉ?
+      - dịch vụ [sửa chữa hệ thống dẫn động] làm có lâu không?
+      - dịch vụ [vệ sinh phanh](service_time) có tốn thời gian không?
       - cái [bảo trì tổng quát](service_time) có lâu hong em?
 
   - intent: ask_service
@@ -159,11 +159,11 @@ nlu:
   - intent: ask_price
     examples: |
       - giá dịch vụ [bảo trì tổng quát](price) là bao nhiêu?
-      - giá dịch vụ [thay thế](price) bao nhiêu tiền?
-      - giá dịch vụ [thay lốp](price) sao vậy ạ?
+      - giá dịch vụ [vệ sinh phanh](price) bao nhiêu tiền?
+      - giá dịch vụ [kiểm tra lốp xe](price) sao vậy ạ?
       - giá dịch vụ [cân chỉnh bánh lái](price) sao?
-      - giá dịch vụ [sơn xe](price) sao?
-      - giá dịch vụ [điều chỉnh](price) sao?
+      - giá dịch vụ [hệ thống nhiên liệu](price) sao?
+      - giá dịch vụ [sửa chữa hệ thống dẫn động](price) sao?
       - dịch vụ [bảo trì tổng quát](price) nhiêu vậy?
       - dịch vụ [căn chỉnh bánh lái](price) nhiêu?
 
@@ -179,39 +179,36 @@ nlu:
       - thanks
       - Cám ơn đã hỗ trợ mình nhe
       - ok mình cảm ơn nha
-
-  - intent: email
-    examples: |
-      - [nam123@gmail.com](email)
-      - [huynguyen@gmail.com](email)
-      - [Test@gmail.com](email)
-      - [est@abc.com](email)
-      - [123@zyx.com](email)
-      - [nh@dd.com](email)
-      - Địa chỉ email của mình là [est@abc.com](email)
-      - Liên hệ với mình qua email [example@gamil.com](email)
+      - cám ơn em nha
+      - cám ơn bạn nhé
 
   - intent: form_service
     examples: |
       - mình muốn làm dịch vụ [bảo trì tổng quát](service)
       - mình chọn dịch vụ [căn chỉnh bánh lái](service)
-      - mình làm dịch vụ [điều chỉnh](service) nhe
-      - mình làm dịch vụ [sửa chữa hệ thống nhiên liệu](service)
+      - mình làm dịch vụ [sửa chữa hệ thống dẫn động](service) nhe
+      - mình làm dịch vụ [hệ thống nhiên liệu](service)
+      - à cho mình chọn dịch vụ [vệ sinh phanh](service) nha
+      - mình làm dịch vụ [kiểm tra lốp xa](service) ạ
 
-
-  - intent: phone
+  - intent: phone_and_email
     examples: |
-      - số điện thoại của mình là [012344567](phone)
-      - số điện thoại của tôi là [0798412647](phone)
+      - đây ạ [012344567](phone) còn đây là email [example@gamil.com](email)
+      - số điện thoại của mình là [012344567](phone), email này ạ [example@gamil.com](email)
+      - [Test@gmail.com](email), số điện thoại của tôi là [0798412647](phone)
       - gọi cho tôi vào số này [0126745388](phone)
-      - số này [028523958239](phone) nhá
+      - số này [028523958239](phone) nhá 
+      - [nh@dd.com](email), [028523958239](phone)
+      - sđt [028523958239](phone), email [example@outlook.com](email)
+      - email của mình là [example@gmail.com](email), số điện thoại [0123456789](phone)
+      - Địa chỉ email của mình là [est@abc.com](email), sđt [0983765722](phone)
 
   - intent: request_book
     examples: |
       - mình muốn đặt lịch hẹn sữa chữa
       - đặt lịch
       - hẹn sữa chữa
-      - hẹn sửa chữa
+      - hẹn sửa chữat
       - cho mình đặt lịch
       - cho mình đặt lịch hẹn
       - mai đến
@@ -225,7 +222,7 @@ nlu:
 
   - intent: out_of_the_box
     examples: |
-      - 1 + 1 bằng mấy?
+      - 1 + 1 bằng mấy?r
       - Bánh pizza ở đâu?
       - Ironman là ai?
       - Rượu chuối hột là gì?
