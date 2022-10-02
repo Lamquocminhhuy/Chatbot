@@ -25,6 +25,9 @@ responses:
   utter_thank:
     - text: "Dạ, em cảm ơn quý khách."
     - text: "Cảm ơn quý khách ạ, chúc quý khách một ngày tốt lành."
+  
+  utter_res_advise:
+    - text: "Dạ garage Can Tho xin nghe, quý khách muốn được tư vấn gì ạ?"
 
   utter_greet:
     - text: "Xin chào garage có thể hỗ trợ gì cho quý khách ạ"
@@ -33,7 +36,7 @@ responses:
     - text: "Quý khách vui lòng cho em xin họ tên ạ. "
 
   utter_ask_email:
-    - text: "Cho em xin email của quý khách ạ."
+    - text: "Cho em xin email và số điện thoại để dễ xác nhận ạ."
 
   utter_ask_service:
     - text: "Quý khách muốn đặt lịch cho dịch vụ nào ạ?"
@@ -41,38 +44,31 @@ responses:
   utter_ask_date:
     - text: "Cho em xin thêm thời gian quý khách định đến garage ạ."
 
-  utter_ask_phone:
-    - text: "Quý khách cho em xin thêm sđt để xác nhận ạ"
-
   utter_subscribed:
     - text: |
         Em xin chốt lại thông tin đặt lịch của quý khách:
         - Tên khách hàng: {name}
-        - Ngày đặt: {date}
+        - Ngày đặt: {date} lúc {time}
         - Dịch vụ: {service}
         - Email: {email}
         - SĐT: {phone}
 
   utter_ans_worktime:
     - text: |
-        Thời gian làm việc của garage chúng tôi từ 8h đến 5h hàng ngày. 
-        Phục vụ cả vào thứ 7 và Chủ Nhật ạ.
-
+        Thời gian làm việc của từ Thứ 2 đên Chủ Nhật từ 8h đến 5h hàng ngày luôn nha
 
   utter_response_for_deny:
-    - text: "Dạ garage cảm ơn ạ. Nếu quý khách có nhu cầu tư vấn gì thì cứ nhắn em sẽ hỗ trợ ạ."
+    - text: "Dạ garage cảm ơn ạ. Nếu quý khách có nhu cầu tư vấn gì thì cứ nhắn em sẽ hỗ trợ ạ"
 
   utter_goodbye:
-    - text: "Garage xin chào và cảm ơn quý khách."
+    - text: "Garage Can Tho xin chào và cảm ơn quý khách"
 
   utter_iamabot:
     - text: "Mình là chatbot được tạo nên từ Rasa."
     - text: "Tôi là chatbot để hỗ trợ bạn."
 
   utter_out_of_scope:
-    - text: "Xin lỗi em chưa hiểu ý của quý khách."
     - text: "Em chưa hiểu ý của quý khách. Quý khách có thể giải thích lại không ạ?"
-
 
 actions:
   - action_ask_services
@@ -100,6 +96,9 @@ forms:
       email:
       - type: from_entity
         entity: email
+      phone:
+      - type: from_entity
+        entity: phone
       service:
       - type: from_entity
         entity: service
@@ -109,9 +108,7 @@ forms:
       time:
       - type: from_entity
         entity: time
-      phone:
-      - type: from_entity
-        entity: phone
+
 
 slots:
   name:

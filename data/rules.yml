@@ -10,7 +10,7 @@ rules:
     steps:
       - intent: goodbye
       - action: utter_goodbye
-
+  
   - rule: Thanks
     steps:  
       - intent: thank
@@ -35,6 +35,12 @@ rules:
     steps:
       - intent: ask_price
       - action: action_ans_price
+
+  - rule: User want advise
+    steps:
+      - intent: ask_advise
+      - action: utter_res_advise
+
 
   - rule: ask_worktime
     steps:
