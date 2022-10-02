@@ -1,10 +1,7 @@
+import requests
 from typing import Any, Text, Dict, List
-from urllib import request, response
-
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-import requests
-
 from rasa_sdk.events import FollowupAction
 
 ## Response all services when user ask for all services
@@ -67,25 +64,28 @@ class ActionResponseServiceDetail(Action):
       
       
         # print(str(tracker.latest_message['entities'][0]['value']))
-        service = str(tracker.latest_message['entities'][0]['value'])
+        try:
+            service = str(tracker.latest_message['entities'][0]['value'])
+        except: 
+            service = "null"
+
         print(service)
  
         response = requests.get("https://canthogarage.pythonanywhere.com/api/service/" + service.replace("dịch vụ", "").strip())
         print(response.status_code)
-        if(response.status_code == 200 and response.json()['status'] != 404):
+        if(response.status_code == 200):
             responseData = response.json()
             text = "Dạ {}".format(responseData['description'])
-        else:
+        else    :
             text = "Dạ garage bên em không có dịch vụ đó ạ."
-
+          
+            dispatcher.utter_message(text)
+        
+            return [FollowupAction("action_ask_services")]
 
         dispatcher.utter_message(text)
-        
+        return []
        
-        return [FollowupAction("action_ask_services")]
-       
-
-    
 ## Response service time in minutes or hours
 class ActionAskTime(Action):
 
@@ -111,6 +111,8 @@ class ActionAskTime(Action):
                 text = "Dạ dịch vụ {} sẽ được bên garage làm trong khoảng {} tiếng ạ.".format(responseData['name'], int(responseData['time_todo'])//60)
             elif (time_unit == "phút" ):
                 text = "Dạ dịch vụ {} sẽ được bên garage làm trong khoảng {} phút ạ.".format(responseData['name'], int(responseData['time_todo']))
+            elif (time_unit == "giờ" ):
+                text = "Dạ dịch vụ {} sẽ được bên garage làm trong khoảng {} giờ ạ.".format(responseData['name'], int(responseData['time_todo']//60))
             else:
                 text = "Dạ thời gian hoàn thành dịch vụ {} sẽ tùy vào tình trạng xe ạ.".format(responseData['name'])
         else:

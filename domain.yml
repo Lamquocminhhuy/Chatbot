@@ -14,48 +14,53 @@ intents:
   - thank
   - request_book
   - out_of_the_box
-  - email_phone
+  - email
   - ask_service_details
   - ask_service_time
+  - deny
+  - phone
+
 
 responses:
+  utter_thank:
+    - text: "Dạ, em cảm ơn quý khách."
+    - text: "Cảm ơn quý khách ạ, chúc quý khách một ngày tốt lành."
+
   utter_greet:
     - text: "Xin chào garage có thể hỗ trợ gì cho quý khách ạ"
 
   utter_ask_name:
     - text: "Quý khách vui lòng cho em xin họ tên ạ. "
 
-  utter_ask_contact:
-    - text: "Cho em xin email và số điện thoại của quý khách ạ."
+  utter_ask_email:
+    - text: "Cho em xin email của quý khách ạ."
 
   utter_ask_service:
     - text: "Quý khách muốn đặt lịch cho dịch vụ nào ạ?"
 
-  utter_ask_time:
+  utter_ask_date:
     - text: "Cho em xin thêm thời gian quý khách định đến garage ạ."
 
-  utter_slots_values:
+  utter_ask_phone:
+    - text: "Quý khách cho em xin thêm sđt để xác nhận ạ"
+
+  utter_subscribed:
     - text: |
         Em xin chốt lại thông tin đặt lịch của quý khách:
-        - Tên khách hàng: { name }
-        - Ngày đặt: { date }
-        - Dịch vụ: { service }
-        - Email: { email }
-        - SĐT: { phone }
-
-  utter_ans_service:
-    - text: |
-        Sửa chửa và thay thế lốp xe thuộc các thương hiệu lốp cao cấp hàng đầu đến từ Đức. Thời gian ước tính của dịch vụ này là khoảng 60 phút.
-        Anh chị cần hỗ trợ thêm gì không ạ?
+        - Tên khách hàng: {name}
+        - Ngày đặt: {date}
+        - Dịch vụ: {service}
+        - Email: {email}
+        - SĐT: {phone}
 
   utter_ans_worktime:
     - text: |
         Thời gian làm việc của garage chúng tôi từ 8h đến 5h hàng ngày. 
         Phục vụ cả vào thứ 7 và Chủ Nhật ạ.
 
-  utter_ans_price:
-    - text: "Giá của dịch vụ là 60.000 VND."
-    - text: "Gía của dịch vụ là 120.000 VND."
+
+  utter_response_for_deny:
+    - text: "Dạ garage cảm ơn ạ. Nếu quý khách có nhu cầu tư vấn gì thì cứ nhắn em sẽ hỗ trợ ạ."
 
   utter_goodbye:
     - text: "Garage xin chào và cảm ơn quý khách."
@@ -79,51 +84,51 @@ actions:
     
 entities:
   - price
+  - name
+  - email
+  - service
+  - date
+  - time
+  - phone
 
-# forms:
-#   booking_form:
-#     required_slots:
-#       name:
-#       - type: from_entity
-#         entity: name
-#       email:
-#       - type: from_entity
-#         entity: email
-#       service:
-#       - type: from_entity
-#         entity: service
-#       date:
-#       - type: from_entity
-#         entity: date
-#       time:
-#       - type: from_entity
-#         entity: time
-#       phone:
-#       - type: from_entity
-#         entity: phone
+forms:
+  booking_form:
+    required_slots:
+      name:
+      - type: from_entity
+        entity: name
+      email:
+      - type: from_entity
+        entity: email
+      service:
+      - type: from_entity
+        entity: service
+      date:
+      - type: from_entity
+        entity: date
+      time:
+      - type: from_entity
+        entity: time
+      phone:
+      - type: from_entity
+        entity: phone
 
-# slots:
-#   name:
-#     type: text
-#     auto_fill: false
-#     influence_conversation: false
-#   email:
-#     type: text
-#     auto_fill: false
-#     influence_conversation: false
-#   service:
-#     type: text
-#     auto_fill: false
-#     influence_conversation: false
-#   date:
-#     type: text
-#     auto_fill: false
-#     influence_conversation: false
-#   time:
-#     type: text
-#     auto_fill: false
-#     influence_conversation: false
-#   phone:
-#     type: text
-#     auto_fill: false
-#     influence_conversation: false
+slots:
+  name:
+    type: text
+    influence_conversation: false
+  email:
+    type: text
+    influence_conversation: false
+  service:
+    type: text
+    influence_conversation: false
+  date:
+    type: text
+    influence_conversation: false
+  time:
+    type: text
+    influence_conversation: false
+  phone:
+    type: text
+    influence_conversation: false

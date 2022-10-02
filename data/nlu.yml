@@ -11,7 +11,7 @@ nlu:
 
   - intent: name
     examples: |
-      - [Khưu Nguyễn Hoàng Nam](name)
+      - Tên của mình là [Khưu Nguyễn Hoàng Nam](name)
       - [Phan Thị Huỳnh Như](name)
       - [Nguyễn Văn Quy](name)
       - [Nguyễn Văn A](name)
@@ -19,6 +19,7 @@ nlu:
 
   - intent: greet
     examples: |
+      - chào garage
       - hey
       - hello
       - hi
@@ -58,6 +59,7 @@ nlu:
       - chào bot nha
       - bot ơi
       - ad ơi cho mình hỏi
+      - ê
 
   - intent: goodbye
     examples: |
@@ -128,14 +130,21 @@ nlu:
       - cho mình hỏi dịch vụ [căn chỉnh bánh lái](service_detail) là làm gì?
       - cho mình hỏi dịch vụ [điều chỉnh](service_detail) là làm gì?
       - [điều chỉnh](service_detail) là làm gì?
+      - thế còn [thay thế lốp xe](service_detail)
+      - thế còn [bảo trì tổng quát](service_detail) thì sao?
+      - tư vấn cho mình dịch vụ [bảo trì tổng quát](service_detail)
+      - vậy dịch vụ [điều chỉnh](service_detail) là làm gì? 
       
   - intent: ask_service_time
     examples: |
       - cho mình hỏi dịch vụ [sơn xe](service_time) thì làm khoảng bao lâu là xong?
       - dịch vụ [bảo trì tổng quát](service_time) cỡ bao nhiêu [phút](time_unit) là xong?
       - dịch vụ [vá lốp xe](service_time) thì làm khoảng mấy [tiếng](time_unit) ạ
+      - dịch vụ [bảo trì tổng quát](service_time) cỡ bao nhiêu [giờ](time_unit) là xong?
+      - dịch vụ [vá lốp xe](service_time) thì làm khoảng mấy [giờ](time_unit) xong thế nhỉ?
       - dịch vụ [điều chỉnh] làm có lâu không?
       - dịch vụ [sửa chữa và thay thế](service_time) có tốn thời gian không?
+      - cái [bảo trì tổng quát](service_time) có lâu hong em?
 
   - intent: ask_service
     examples: |
@@ -155,9 +164,12 @@ nlu:
       - giá dịch vụ [cân chỉnh bánh lái](price) sao?
       - giá dịch vụ [sơn xe](price) sao?
       - giá dịch vụ [điều chỉnh](price) sao?
+      - dịch vụ [bảo trì tổng quát](price) nhiêu vậy?
+      - dịch vụ [căn chỉnh bánh lái](price) nhiêu?
 
   - intent: thank
     examples: |
+      - thanks
       - thank you
       - thank u
       - cảm ơn
@@ -166,8 +178,9 @@ nlu:
       - Cám ơn ad
       - thanks
       - Cám ơn đã hỗ trợ mình nhe
+      - ok mình cảm ơn nha
 
-  - intent: email_phone
+  - intent: email
     examples: |
       - [nam123@gmail.com](email)
       - [huynguyen@gmail.com](email)
@@ -177,6 +190,14 @@ nlu:
       - [nh@dd.com](email)
       - Địa chỉ email của mình là [est@abc.com](email)
       - Liên hệ với mình qua email [example@gamil.com](email)
+
+  - intent: form_service
+    examples: |
+      - mình muốn làm dịch vụ [bảo trì tổng quát](service)
+      - mình chọn dịch vụ [căn chỉnh bánh lái](service)
+      - mình làm dịch vụ [điều chỉnh](service) nhe
+      - mình làm dịch vụ [sửa chữa hệ thống nhiên liệu](service)
+
 
   - intent: phone
     examples: |
@@ -193,6 +214,7 @@ nlu:
       - hẹn sửa chữa
       - cho mình đặt lịch
       - cho mình đặt lịch hẹn
+      - mai đến
 
   - intent: date_time
     examples: |
@@ -207,3 +229,19 @@ nlu:
       - Bánh pizza ở đâu?
       - Ironman là ai?
       - Rượu chuối hột là gì?
+      - ngu
+      - bot ngu quá
+      - hiểu không vậy
+      - kẹo socola
+      - rượu vang đỏ
+
+  - intent: deny
+    examples: |
+      - không
+      - không có nhu cầu
+      - không muốn tư vấn
+      - hong muốn gì hết á
+      - kệ tui 
+      - tui hỏng có muốn đâu
+      - ai mà thèm
+      - không thích nhe

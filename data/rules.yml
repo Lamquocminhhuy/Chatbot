@@ -11,6 +11,11 @@ rules:
       - intent: goodbye
       - action: utter_goodbye
 
+  - rule: Thanks
+    steps:  
+      - intent: thank
+      - action: utter_thank
+
   - rule: I'm Rasa
     steps:
       - intent: bot_challenge
@@ -45,4 +50,17 @@ rules:
     steps:
       - intent: ask_service_details
       - action: action_ans_service_detail
+  
+  - rule: user_don't_want_chat_anymore
+    steps:
+      - intent: deny
+      - action: utter_response_for_deny
+
+  - rule: booking_form
+    steps:
+      - intent: request_book
+      - action: booking_form
+      - active_loop: booking_form
+      - active_loop: null
+      - action: utter_subscribed
 
