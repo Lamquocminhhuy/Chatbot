@@ -37,7 +37,7 @@ class ActionPrice(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
       
       
-        print(str(tracker.latest_message['entities'][0]['value']))
+        print(str(tracker.latest_message['entities'][0]['value']) + " (hỏi giá)")
         service = str(tracker.latest_message['entities'][0]['value'])
         response = requests.get("https://canthogarage.pythonanywhere.com/api/service/" + service)
       
@@ -69,13 +69,12 @@ class ActionResponseServiceDetail(Action):
         except: 
             service = "null"
 
-        print(service)
+        print(service + " (hỏi chi tiết dịch vụ)")
  
         response = requests.get("https://canthogarage.pythonanywhere.com/api/service/" + service.replace("dịch vụ", "").strip())
-        print(response.status_code)
         if(response.status_code == 200):
             responseData = response.json()
-            text = "Dạ {}".format(responseData['description'])
+            text = "Dạ là {}".format(responseData['description'].lower())
         else    :
             text = "Dạ garage bên em không có dịch vụ đó ạ."
           
@@ -99,6 +98,7 @@ class ActionAskTime(Action):
       
         # print(str(tracker.latest_message['entities'][0]['value']))
         service = str(tracker.latest_message['entities'][0]['value'])
+        print(service + " (hỏi thời gian thực hiện")
         try:
             time_unit = str(tracker.latest_message['entities'][1]['value']) 
         except:
