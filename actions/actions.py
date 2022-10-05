@@ -1,8 +1,10 @@
+import json
 import requests
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import FollowupAction
+from process_date import format_date, process_datetime
 
 ## Response all services when user ask for all services
 class ActionRecommend(Action):
@@ -120,4 +122,57 @@ class ActionAskTime(Action):
 
 
         dispatcher.utter_message(text)
+        return []
+
+class ActionBookingForm(Action):
+
+    def name(self) -> Text:
+        return "action_booking_submit"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+      
+
+        booking_data = {} # init 
+        booking_data["user"] = tracker.get_slot("name") 
+        booking_data["email"] = tracker.get_slot("email")
+        booking_data["phone_number"] = tracker.get_slot("phone")
+
+
+        if tracker.get_slot("service") and tracker.get_slot("time") != "":
+            try:
+                response = requests.get("https://canthogarage.pythonanywhere.com/api/service/" + tracker.get_slot("service").strip())
+
+                responseData = response.json()
+
+                booking_data["service"] = responseData["id"]
+                dayofweek = ["thứ 2","thứ 3","thứ 4","thứ 5","thứ 6","thứ 7","chủ nhật", "thứ hai","thứ ba","thứ tư","thứ năm","thứ sau","thứ bảy"]
+
+                if tracker.get_slot("date").strip().lower() == "ngày mai" or tracker.get_slot("date").strip().lower() == "hôm nay":
+
+                    date_format = process_datetime.ngaymaihomnay(tracker.get_slot("date"))
+
+                elif tracker.get_slot("date").strip().lower() in dayofweek:
+                    print("Hello")
+                    date_format = process_datetime.findDate(tracker.get_slot("date").strip().lower()) 
+                else: 
+                    date_format = format_date.regex_date(tracker.get_slot("date").strip().lower())
+
+
+                time_format = process_datetime.process_time(tracker.get_slot("time").strip().lower())
+
+           
+                booking_data["date"] = date_format[0]
+                booking_data["timeblock"] = time_format 
+                #print(booking_data)
+                r = requests.post("https://canthogarage.pythonanywhere.com/api/booking/", data = json.dumps(booking_data, indent = 4))
+
+                text = "Em xin chốt lại thông tin đặt lịch của quý khách:\n- Tên khách hàng: {}\n- Ngày đặt: {} lúc {} giờ\n- Dịch vụ: {}\n- Email: {}\n- SĐT: {}\n"
+
+                dispatcher.utter_message(text.format(booking_data["user"], booking_data["date"], booking_data["timeblock"], tracker.get_slot("service"), booking_data["email"], booking_data["phone_number"]))
+
+            except:
+                dispatcher.utter_message("Có tí trục trặc với hệ thống quý khách đặt lịch sau nha")
+
         return []

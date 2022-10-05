@@ -35,4 +35,5 @@ def regex_date(msg, timezone="Asia/Ho_Chi_Minh"):
         date_str.append(_dt)
     return date_str
     
-print(regex_date("02/10")) ## Output: ['2022-10-02']
+
+## print(regex_date("02/10")) ## Output: ['2022-10-02']

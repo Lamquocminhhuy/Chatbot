@@ -1,0 +1,11 @@
+POST https://canthogarage.pythonanywhere.com/api/booking/
+Content-Type: application/json
+
+{       
+    "user": "Minh", 
+    "email": "lamquocminhhuy@gmail.com", 
+    "phone_number": "0896617857", 
+    "timeblock": "8:00", 
+    "service": 2, 
+    "date": "2022-10-05"
+}

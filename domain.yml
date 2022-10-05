@@ -1,91 +1,95 @@
-version: "2.0"
+version: '2.0'
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
-
 intents:
-  - greet
-  - goodbye
-  - bot_challenge
-  - ask_worktime
-  - ask_advise
-  - ask_service
-  - ask_price
-  - thank
-  - request_book
-  - out_of_the_box
-  - email
-  - ask_service_details
-  - ask_service_time
-  - deny
-  - phone
+- name
+- form_service
+- request_book
+- phone_and_email
+- greet
+- goodbye
+- bot_challenge
+- ask_worktime
+- ask_advise
+- ask_service
+- ask_price
+- thank
+- out_of_the_box
+- ask_service_details
+- ask_service_time
+- deny
 
-
+entities:
+- date
+- email
+- name
+- phone
+- price
+- service
+- time
+slots:
+  name:
+    type: text
+    influence_conversation: false
+  email:
+    type: text
+    influence_conversation: false
+  service:
+    type: text
+    influence_conversation: false
+  date:
+    type: text
+    influence_conversation: false
+  time:
+    type: text
+    influence_conversation: false
+  phone:
+    type: text
+    influence_conversation: false
 responses:
   utter_thank:
-    - text: "Dạ, em cảm ơn quý khách."
-    - text: "Cảm ơn quý khách ạ, chúc quý khách một ngày tốt lành."
-  
+  - text: Dạ, em cảm ơn quý khách.
+  - text: Cảm ơn quý khách ạ, chúc quý khách một ngày tốt lành.
   utter_res_advise:
-    - text: "Dạ garage Can Tho xin nghe, quý khách muốn được tư vấn gì ạ?"
-
+  - text: Dạ garage Can Tho xin nghe, quý khách muốn được tư vấn gì ạ?
   utter_greet:
-    - text: "Xin chào garage có thể hỗ trợ gì cho quý khách ạ"
-
+  - text: Xin chào garage có thể hỗ trợ gì cho quý khách ạ
   utter_ask_name:
-    - text: "Quý khách vui lòng cho em xin họ tên ạ. "
-
+  - text: 'Quý khách vui lòng cho em xin họ tên ạ. '
   utter_ask_email:
-    - text: "Cho em xin email và số điện thoại để dễ xác nhận ạ."
-
+  - text: Cho em xin email và số điện thoại để dễ xác nhận ạ.
   utter_ask_service:
-    - text: "Quý khách muốn đặt lịch cho dịch vụ nào ạ?"
-
+  - text: Quý khách muốn đặt lịch cho dịch vụ nào ạ?
   utter_ask_date:
-    - text: "Cho em xin thêm thời gian quý khách định đến garage ạ."
-
+  - text: Cho em xin thêm thời gian quý khách định đến garage ạ.
   utter_subscribed:
-    - text: |
-        Em xin chốt lại thông tin đặt lịch của quý khách:
-        - Tên khách hàng: {name}
-        - Ngày đặt: {date} lúc {time}
-        - Dịch vụ: {service}
-        - Email: {email}
-        - SĐT: {phone}
-
+  - text: |
+      Em xin chốt lại thông tin đặt lịch của quý khách:
+      - Tên khách hàng: {name}
+      - Ngày đặt: {date} lúc {time}
+      - Dịch vụ: {service}
+      - Email: {email}
+      - SĐT: {phone}
   utter_ans_worktime:
-    - text: |
-        Thời gian làm việc của từ Thứ 2 đên Chủ Nhật từ 8h đến 5h hàng ngày luôn nha
-
+  - text: |
+      Thời gian làm việc của từ Thứ 2 đên Chủ Nhật từ 8h đến 5h hàng ngày luôn nha
   utter_response_for_deny:
-    - text: "Dạ garage cảm ơn ạ. Nếu quý khách có nhu cầu tư vấn gì thì cứ nhắn em sẽ hỗ trợ ạ"
-
+  - text: Dạ garage cảm ơn ạ. Nếu quý khách có nhu cầu tư vấn gì thì cứ nhắn em sẽ hỗ trợ ạ
   utter_goodbye:
-    - text: "Garage Can Tho xin chào và cảm ơn quý khách"
-
+  - text: Garage Can Tho xin chào và cảm ơn quý khách
   utter_iamabot:
-    - text: "Mình là chatbot được tạo nên từ Rasa."
-    - text: "Tôi là chatbot để hỗ trợ bạn."
-
+  - text: Mình là chatbot được tạo nên từ Rasa.
+  - text: Tôi là chatbot để hỗ trợ bạn.
   utter_out_of_scope:
-    - text: "Em chưa hiểu ý của quý khách. Quý khách có thể giải thích lại không ạ?"
+  - text: Em chưa hiểu ý của quý khách. Quý khách có thể giải thích lại không ạ?
 
 actions:
-  - action_ask_services
-  - action_ans_price
-  - action_ans_service_time
-  - action_ans_service_detail
-
-
-    
-entities:
-  - price
-  - name
-  - email
-  - service
-  - date
-  - time
-  - phone
+- action_ans_price
+- action_ans_service_detail
+- action_ans_service_time
+- action_ask_services
+- action_booking_submit
 
 forms:
   booking_form:
@@ -108,24 +112,3 @@ forms:
       time:
       - type: from_entity
         entity: time
-
-
-slots:
-  name:
-    type: text
-    influence_conversation: false
-  email:
-    type: text
-    influence_conversation: false
-  service:
-    type: text
-    influence_conversation: false
-  date:
-    type: text
-    influence_conversation: false
-  time:
-    type: text
-    influence_conversation: false
-  phone:
-    type: text
-    influence_conversation: false
