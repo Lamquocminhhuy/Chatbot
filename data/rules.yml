@@ -63,10 +63,11 @@ rules:
       - action: utter_response_for_deny
 
   - rule: booking_form
+    
     steps:
       - intent: request_book
       - action: booking_form
       - active_loop: booking_form
       - active_loop: null
-      - action: utter_subscribed
+      - action: action_booking_submit
 
