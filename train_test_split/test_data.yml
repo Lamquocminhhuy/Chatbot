@@ -1,0 +1,77 @@
+version: "2.0"
+nlu:
+- intent: bot_challenge
+  examples: |
+    - Phải là chatbot hong dị?
+- intent: ask_service
+  examples: |
+    - dịch vụ nào
+    - bên mình có những dịch vụ nào ạ?
+- intent: ask_advise
+  examples: |
+    - tôi cần tư vấn
+- intent: ask_service_time
+  examples: |
+    - dịch vụ [vệ sinh phanh](service_time) có tốn thời gian không?
+    - dịch vụ [hệ thống nhiên liệu](service_time) thì làm khoảng mấy [tiếng](time_unit) ạ
+- intent: ask_price
+  examples: |
+    - giá dịch vụ [cân chỉnh bánh lái](price) sao?
+- intent: form_service
+  examples: |
+    - mình chọn dịch vụ [căn chỉnh bánh lái](service)
+    - Mình chọn dịch vụ [bảo trì tổng quát](service)
+- intent: request_book
+  examples: |
+    - hẹn sữa chữa
+    - mai đến
+- intent: deny
+  examples: |
+    - ai mà thèm
+- intent: out_of_the_box
+  examples: |
+    - Ironman là ai?
+    - 1 + 1 bằng mấy?r
+- intent: name
+  examples: |
+    - Tên mình là [Lâm Quốc Minh Huy](name)
+    - Tên mình là [Nguyễn Văn Dell](name)
+- intent: phone_and_email
+  examples: |
+    - gọi cho tôi vào số này [0126745388](phone)
+    - Địa chỉ email của mình là [est@abc.com](email), sđt [0983765722](phone)
+- intent: ask_service_details
+  examples: |
+    - cho mình hỏi dịch vụ [vệ sinh phanh](service_detail) là làm gì?
+    - tư vấn cho mình dịch vụ [hệ thống nhiên liệu](service_detail)
+- intent: thank
+  examples: |
+    - thank you
+    - ok mình cảm ơn nha
+- intent: ask_worktime
+  examples: |
+    - lịch làm việc của nha khoa mình ra sao
+    - lịch garage như nào
+    - giờ làm việc của garage như thế nào
+    - garage làm việc những ngày nào
+- intent: goodbye
+  examples: |
+    - gặp lại sau
+    - good night
+    - hẹn gặp lại nha
+- intent: date_time
+  examples: |
+    - Chắc mình đến lúc [10h](time) [ngày mai](date)
+    - Khoảng [3 giờ](time) [thứ tư](date)
+    - [8h](time) [hôm nay](date) nha
+    - Khoảng [8 giờ](time) ngày [05/10/2022](date)
+    - Tôi sẽ đến lúc [11 giờ](time) ngày [26/09/2022](date).
+- intent: greet
+  examples: |
+    - cho mình hỏi cái này
+    - hey
+    - hello
+    - cho mình hỏi là
+    - xin chào ad
+    - ad ơi cho mình hỏi
+    - chào bạn

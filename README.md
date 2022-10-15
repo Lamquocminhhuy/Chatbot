@@ -27,4 +27,4 @@ Links: https://forum.rasa.com/t/rasa-x-runs-with-several-errors-warnings/49006/8
 2. Get time working of garage
 3. Get specific services information (description, price, time_todo)
 4. Chitchat
-5. Booking (in progress)
+5. Booking (Cancel, Update Booking)

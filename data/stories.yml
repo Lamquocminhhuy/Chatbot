@@ -1,3 +1,11 @@
 version: "2.0"
 
 stories:
+
+  - story: ask_booking_infomation
+    steps:
+      - intent: ask_booking_info
+      - action: utter_ask_booking_id
+      - intent: give_booking_id
+      - action: action_search_booking
+

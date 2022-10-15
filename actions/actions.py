@@ -16,9 +16,9 @@ class ActionRecommend(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        response = requests.get("https://canthogarage.pythonanywhere.com/api/services/").json()
+        response = requests.get("http://localhost:8000/api/services/").json()
         text = "Hiện tại bên em có {} dịch vụ mời quý khách tham khảo ạ.".format(len(response))
-        url = "[Chi tiết](https://canthogarage.pythonanywhere.com/service/{})"
+        url = "[Chi tiết](http://localhost:8000/service/{})"
 
         for i in range(len(response)):
          
@@ -32,7 +32,7 @@ class ActionRecommend(Action):
 class ActionPrice(Action):
 
     def name(self) -> Text:
-        return "action_ans_price"
+        return "action_ans_price"   
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -41,7 +41,7 @@ class ActionPrice(Action):
       
         print(str(tracker.latest_message['entities'][0]['value']) + " (hỏi giá)")
         service = str(tracker.latest_message['entities'][0]['value'])
-        response = requests.get("https://canthogarage.pythonanywhere.com/api/service/" + service)
+        response = requests.get("http://localhost:8000/api/service/" + service)
       
         if (response.status_code) == 200:
             responseData = response.json()
@@ -73,7 +73,7 @@ class ActionResponseServiceDetail(Action):
 
         print(service + " (hỏi chi tiết dịch vụ)")
  
-        response = requests.get("https://canthogarage.pythonanywhere.com/api/service/" + service.replace("dịch vụ", "").strip())
+        response = requests.get("http://localhost:8000/api/service/" + service.replace("dịch vụ", "").strip())
         if(response.status_code == 200):
             responseData = response.json()
             text = "Dạ là {}".format(responseData['description'].lower())
@@ -106,7 +106,7 @@ class ActionAskTime(Action):
         except:
             time_unit = ""
 
-        response = requests.get("https://canthogarage.pythonanywhere.com/api/service/" + service.replace("dịch vụ", "").strip())
+        response = requests.get("http://localhost:8000/api/service/" + service.replace("dịch vụ", "").strip())
         if(response.status_code == 200):
             responseData = response.json()
             if (time_unit == "tiếng"):
@@ -142,19 +142,20 @@ class ActionBookingForm(Action):
 
         if tracker.get_slot("service") and tracker.get_slot("time") != "":
             try:
-                response = requests.get("https://canthogarage.pythonanywhere.com/api/service/" + tracker.get_slot("service").strip())
+                response = requests.get("http://localhost:8000/api/service/" + tracker.get_slot("service").strip())
 
                 responseData = response.json()
+                print(tracker.get_slot("date"))
+                print(tracker.get_slot("time"))
 
                 booking_data["service"] = responseData["id"]
                 dayofweek = ["thứ 2","thứ 3","thứ 4","thứ 5","thứ 6","thứ 7","chủ nhật", "thứ hai","thứ ba","thứ tư","thứ năm","thứ sau","thứ bảy"]
 
-                if tracker.get_slot("date").strip().lower() == "ngày mai" or tracker.get_slot("date").strip().lower() == "hôm nay":
+                if tracker.get_slot("date").strip().lower() == "ngày mai" or tracker.get_slot("date").strip().lower() == "hôm nay" or tracker.get_slot("date").strip().lower() == "bữa nay":
 
                     date_format = process_datetime.ngaymaihomnay(tracker.get_slot("date"))
 
                 elif tracker.get_slot("date").strip().lower() in dayofweek:
-                    print("Hello")
                     date_format = process_datetime.findDate(tracker.get_slot("date").strip().lower()) 
                 else: 
                     date_format = format_date.regex_date(tracker.get_slot("date").strip().lower())
@@ -165,14 +166,47 @@ class ActionBookingForm(Action):
            
                 booking_data["date"] = date_format[0]
                 booking_data["timeblock"] = time_format 
-                #print(booking_data)
-                r = requests.post("https://canthogarage.pythonanywhere.com/api/booking/", data = json.dumps(booking_data, indent = 4))
+  
+                r = requests.post("http://localhost:8000/api/booking/", data = json.dumps(booking_data, indent = 4))
+                
 
-                text = "Em xin chốt lại thông tin đặt lịch của quý khách:\n- Tên khách hàng: {}\n- Ngày đặt: {} lúc {} giờ\n- Dịch vụ: {}\n- Email: {}\n- SĐT: {}\n"
+                text = "Em xin chốt lại thông tin đặt lịch của quý khách:\n- Mã đơn: {}\n- Tên khách hàng: {}\n- Ngày đặt: {} lúc {} giờ\n- Dịch vụ: {}\n- Email: {}\n- SĐT: {}\n"
+                response_data = r.json()
+                booking_id = response_data["id"]
+                print(booking_id[0:8])
 
-                dispatcher.utter_message(text.format(booking_data["user"], booking_data["date"], booking_data["timeblock"], tracker.get_slot("service"), booking_data["email"], booking_data["phone_number"]))
+                dispatcher.utter_message(text.format(booking_id[0:8],booking_data["user"], booking_data["date"], booking_data["timeblock"], tracker.get_slot("service"), booking_data["email"], booking_data["phone_number"]))
 
             except:
                 dispatcher.utter_message("Có tí trục trặc với hệ thống quý khách đặt lịch sau nha")
 
+        return []
+
+class ActionSearchBooking(Action):
+
+    def name(self) -> Text:
+        return "action_search_booking"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+      
+      
+        # print(str(tracker.latest_message['entities'][0]['value']))
+        booking_id = str(tracker.latest_message['entities'][0]['value'])
+        print(booking_id + " (hỏi thông tin đơn đặt lịch")
+   
+
+
+        booking_id = "666f64cf"
+
+        response = requests.get("http://localhost:8000/api/booking/" + booking_id)
+        if(response.status_code == 200):
+            responseData = response.json()
+            text = "Dạ sau khi tra cứu thì em thấy mình có đơn đặt lịch bên em với thông tin như sau ạ.\n- Tên khách hàng: {}\n- Ngày đặt: {} lúc {} giờ\n- Dịch vụ: {}\n- Email: {}\n- SĐT: {}\n- Trạng thái:{}"
+        else:
+            text = "Sau khi tra cứu thì em không tìm thấy đơn đặt lịch nào của quý khách hết ạ."
+
+
+        dispatcher.utter_message(text.format(responseData['user'],responseData['date'],responseData['timeblock'],responseData['service'],responseData['email'],responseData['phone_number']),responseData['password'],responseData['status'])
         return []

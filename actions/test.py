@@ -25,14 +25,19 @@ import requests
 
 ## Post booking 
 
-booking_data = {       
-    "user": "Minh", 
-    "email": "lamquocminhhuy@gmail.com", 
-    "phone_number": "0896617857", 
-    "timeblock": "9:00", 
-    "service": 2, 
-    "date": "2022-10-05"
-}
-print(booking_data)
-r = requests.post("https://canthogarage.pythonanywhere.com/api/booking/", data = json.dumps(booking_data, indent = 4))
-print(r.text)
+# booking_data = {       
+#     "user": "Minh", 
+#     "email": "lamquocminhhuy@gmail.com", 
+#     "phone_number": "0896617857", 
+#     "timeblock": "9:00", 
+#     "service": 2, 
+#     "date": "2022-10-05"
+# }
+# print(booking_data)
+# r = requests.post("https://canthogarage.pythonanywhere.com/api/booking/", data = json.dumps(booking_data, indent = 4))
+# print(r.text)
+
+booking_id = "666f64cf"
+
+response = requests.get("http://localhost:8000/api/booking/" + booking_id  )
+print(response.json())

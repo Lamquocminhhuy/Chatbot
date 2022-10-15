@@ -3,6 +3,8 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- give_booking_id
+- ask_booking_info
 - name
 - form_service
 - request_book
@@ -19,8 +21,10 @@ intents:
 - ask_service_details
 - ask_service_time
 - deny
+- date_time
 
 entities:
+- booking_id
 - date
 - email
 - name
@@ -48,6 +52,8 @@ slots:
     type: text
     influence_conversation: false
 responses:
+  utter_ask_booking_id:
+  - text: Quý khách cho em xin mã đơn đặt lịch để em tra cứu cho ạ.
   utter_thank:
   - text: Dạ, em cảm ơn quý khách.
   - text: Cảm ơn quý khách ạ, chúc quý khách một ngày tốt lành.
@@ -90,6 +96,7 @@ actions:
 - action_ans_service_time
 - action_ask_services
 - action_booking_submit
+- action_search_booking
 
 forms:
   booking_form:
@@ -112,3 +119,4 @@ forms:
       time:
       - type: from_entity
         entity: time
+  

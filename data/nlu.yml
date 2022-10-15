@@ -1,12 +1,6 @@
 version: "2.0"
 nlu:
-- intent: note
-  examples: |
-    - [không có](note)
-    - [ko có](note)
-    - [ko](note)
-    - [không có ghi chú](note)
-    - [gì cũng được](note)
+
 - intent: name
   examples: |
     - Tên của mình là [Khưu Nguyễn Hoàng Nam](name)
@@ -19,6 +13,8 @@ nlu:
     - Tên mình là [Nguyễn Văn Dell](name)
     - Tên mình là [Lâm Quốc Minh Huy](name)
     - Tên tao là [Lý Văn Lê](name)
+    - À tên tui là [Nguyễn Lê Trọng Thành](name)
+    - Tên mình là [La Văn Thời Phát](name)
 - intent: greet
   examples: |
     - chào garage
@@ -221,10 +217,17 @@ nlu:
     - Khoảng [3 giờ](time) [thứ 7](date)
     - Khoảng [3 h](time) [thứ 5](date)
     - Chắc khoảng [8h](time) (thứ 6)(date)
+    - [8h](time) [hôm nay](date) nha
+    - [Hôm nay](date) cỡ [9h](time) mình đến ạ
+    - Chắc mình đến lúc [10h](time) [ngày mai](date)
+    - Khoảng [9 giờ](time) [ngày mai](date)
+    - Cỡ [10 giờ](time) [hôm nay](date) mình đến ạ
+    - Cỡ [8 giờ](time) [bữa nay](date) mình đến nha
+    - Mình đến lúc [9h](time) [bữa nay](date) nha
 
 - intent: out_of_the_box
   examples: |
-    - 1 + 1 bằng mấy?r
+    - 1 + 1 bằng mấy?
     - Bánh pizza ở đâu?
     - Ironman là ai?
     - Rượu chuối hột là gì?
@@ -243,3 +246,17 @@ nlu:
     - tui hỏng có muốn đâu
     - ai mà thèm
     - không thích nhe
+
+- intent: ask_booking_info
+  examples: |
+    - Cho mình tra cứu thông tin đơn đặt lịch ạ
+    - Mình muốn tra cứu thông tin đơn đặt lịch ạ
+    - Tra cứu thông tin đặt lịch
+    - Tra cứu trạng thái đơn đặt lịch của mình
+
+- intent: give_booking_id
+  examples: |
+    - Mã đơn của mình là [666f64cf](booking_id)
+    - [666f64cf](booking_id)
+    - Đây [666f64cf](booking_id) ạ
+    - Nè ad [666f64cf](booking_id)

@@ -17,6 +17,8 @@ token = "tomorrow" ## get from bot
 def ngaymaihomnay(token):
     if token == "hôm nay":
         date = today + datetime.timedelta(days=0)
+    if token == "bữa nay":
+        date = today + datetime.timedelta(days=0)
     if token == "ngày mai":
         date = today + datetime.timedelta(days=1)
     return [date] 
@@ -52,8 +54,7 @@ def findDate(nameOfDay):
     daylist = generate_daylist()
     data = nameOfDay.upper()
 
-    print(daylist)
-    print(data)
+
     
     for day in daylist:
         if data in day['day']:
@@ -62,7 +63,7 @@ def findDate(nameOfDay):
     return -1
     
 user_input = "Thứ 6"
-print(findDate(user_input))
+
 
 def process_time(time):
     time_dict = {

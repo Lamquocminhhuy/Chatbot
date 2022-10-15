@@ -1,0 +1,198 @@
+version: "2.0"
+nlu:
+- intent: bot_challenge
+  examples: |
+    - Tui đang nói chuyện với bot hả ta
+    - Hình như là chatbot thì phải
+    - Chatbot hay gì dạ?
+- intent: ask_service
+  examples: |
+    - bên garage có bao nhiêu dịch vụ
+    - có bao nhiêu dịch vụ
+    - có tất cả các dịch vụ nào
+    - cho mình hỏi garage có những dịch vụ gì ạ
+    - cho tôi hỏi về các dịch vụ của garage
+- intent: ask_advise
+  examples: |
+    - mình cần được tư vấn
+    - tư vấn
+    - tư vấn giùm tôi với
+    - tôi muốn được tư vấn
+    - tư vấn về dịch vụ cho mình
+    - có thể giúp mình tư vấn được không
+    - bạn có tư vấn cho mình về dịch vụ được không
+- intent: ask_service_time
+  examples: |
+    - dịch vụ [sửa chữa hệ thống dẫn động](service_time) thì làm khoảng mấy [giờ](time_unit) xong thế nhỉ?
+    - cho mình hỏi dịch vụ [căn chỉnh bánh lái](service_time) thì làm khoảng bao lâu là xong?
+    - dịch vụ [bảo trì tổng quát](service_time) cỡ bao nhiêu [phút](time_unit) là xong?
+    - dịch vụ [kiểm tra lốp xe](service_time) cỡ bao nhiêu [giờ](time_unit) là xong?
+    - dịch vụ [sửa chữa hệ thống dẫn động] làm có lâu không?
+    - cái [bảo trì tổng quát](service_time) có lâu hong em?
+- intent: ask_price
+  examples: |
+    - dịch vụ [căn chỉnh bánh lái](price) nhiêu?
+    - giá dịch vụ [kiểm tra lốp xe](price) sao vậy ạ?
+    - giá dịch vụ [hệ thống nhiên liệu](price) sao?
+    - giá dịch vụ [vệ sinh phanh](price) bao nhiêu tiền?
+    - dịch vụ [bảo trì tổng quát](price) nhiêu vậy?
+    - giá dịch vụ [bảo trì tổng quát](price) là bao nhiêu?
+    - giá dịch vụ [sửa chữa hệ thống dẫn động](price) sao?
+- intent: form_service
+  examples: |
+    - mình làm dịch vụ [sửa chữa hệ thống dẫn động](service) nhe
+    - mình làm dịch vụ [hệ thống nhiên liệu](service)
+    - mình làm dịch vụ [kiểm tra lốp xa](service) ạ
+    - mình đặt lịch cho dịch vụ [Vệ sinh phanh](service)
+    - mình muốn làm dịch vụ [bảo trì tổng quát](service)
+    - à cho mình chọn dịch vụ [vệ sinh phanh](service) nha
+- intent: request_book
+  examples: |
+    - cho mình đặt lịch
+    - Mình muốn đặt lịch ạ
+    - đặt lịch
+    - mình muốn đặt lịch hẹn sữa chữa
+    - hẹn sửa chữa
+    - cho mình đặt lịch hẹn
+- intent: deny
+  examples: |
+    - không
+    - tui hỏng có muốn đâu
+    - không có nhu cầu
+    - không thích nhe
+    - hong muốn gì hết á
+    - kệ tui
+    - không muốn tư vấn
+- intent: out_of_the_box
+  examples: |
+    - Rượu chuối hột là gì?
+    - ngu
+    - Bánh pizza ở đâu?
+    - kẹo socola
+    - hiểu không vậy
+    - bot ngu quá
+    - rượu vang đỏ
+- intent: name
+  examples: |
+    - [Lê Thị Vân Anh](name)
+    - Tên tao là [Lý Văn Lê](name)
+    - Tên của mình là [Khưu Nguyễn Hoàng Nam](name)
+    - [Nguyễn Văn Quy](name)
+    - Tên mình [Nguyễn Văn Hoàng Anh](name) ạ
+    - Mình tên [Nguyễn Thị Nam Như](name)
+    - [Phan Thị Huỳnh Như](name)
+    - [Nguyễn Văn A](name)
+- intent: phone_and_email
+  examples: |
+    - số điện thoại của mình là [012344567](phone), email này ạ [example@gamil.com](email)
+    - đây ạ [012344567](phone) còn đây là email [example@gamil.com](email)
+    - [nh@dd.com](email), [028523958239](phone)
+    - [Test@gmail.com](email), số điện thoại của tôi là [0798412647](phone)
+    - email của mình là [example@gmail.com](email), số điện thoại [0123456789](phone)
+    - số này [028523958239](phone) nhá
+    - Email của mình là [dell@gmail.com](email), sđt [089661788](phone)
+    - sđt [028523958239](phone), email [example@outlook.com](email)
+- intent: ask_service_details
+  examples: |
+    - cho mình hỏi dịch vụ [bảo trì tổng quát](service_detail) là làm gì?
+    - [vệ sinh phanh](service_detail) là làm gì?
+    - cho mình hỏi dịch vụ [sửa chữa hệ thống dẫn động](service_detail) là làm gì?
+    - cho mình hỏi dịch vụ [căn chỉnh bánh lái](service_detail) là làm gì?
+    - thế còn [bảo trì tổng quát](service_detail) thì sao?
+    - cho mình hỏi dịch vụ [kiểm tra lốp xe](service_detail) là làm gì?
+    - cho mình hỏi dịch vụ [hệ thống nhiên liệu](service_detail) là làm gì?
+    - vậy dịch vụ [căn chỉnh bánh lái](service_detail) là làm gì?
+    - thế còn [kiểm tra lốp xe](service_detail)
+- intent: thank
+  examples: |
+    - thanks
+    - xin cảm ơn
+    - cảm ơn
+    - cám ơn bạn nhé
+    - Cám ơn ad
+    - cám ơn
+    - cám ơn em nha
+    - Cám ơn đã hỗ trợ mình nhe
+    - thank u
+- intent: ask_worktime
+  examples: |
+    - garage mình có lịch chủ nhật không
+    - gara mình làm việc lúc mấy giờ ạ
+    - garage đóng cửa vào lúc mấy giờ
+    - gala bên mình làm việc từ mấy giờ ạ
+    - thứ 7 chủ nhật có làm không?
+    - thời gian làm việc sao
+    - giờ làm việc của garage
+    - garage mở cửa mấy giờ
+    - giờ làm việc sao
+    - giờ mở cửa của garage
+    - cho xin lịch làm việc
+    - garage mấy giờ mở cửa
+    - lịch làm việc của garage thế nào
+- intent: goodbye
+  examples: |
+    - xin chào tạm biệt
+    - bye bot
+    - goodbye
+    - gặp bạn sau nhé
+    - tạm biệt
+    - bye bye nha
+    - hẹn gặp vào ngày mai
+    - bai
+    - xin tạm biệt
+    - tạm biệt bạn nha
+    - bye
+    - good bye
+    - bye bye
+    - chào tạm biệt
+    - bye ad
+- intent: date_time
+  examples: |
+    - Mình đến vào [8 giờ](time) ngày [25/09/2022](date) nha.
+    - Khoảng [8 giờ](time) [ngày mai](date)
+    - Khoảng [3 h](time) [thứ 5](date)
+    - Khoảng [10 giờ](time) [thứ hai](date)
+    - Khoảng [9 giờ](time) [thứ năm](date)
+    - [Hôm nay](date) cỡ [9h](time) mình đến ạ
+    - [8h](time) ngày [6/10](date)
+    - Khoảng [3 giờ](time) [thứ 7](date)
+    - Chắc mình đến lúc [4 giờ](time) ngày [01-10](date) nha
+    - Khoảng [1 giờ](time) [thứ ba](date)
+    - [9 giờ](time) ngày [25/09/2022](date).
+    - Vào [10 giờ](time) ngày [25/09/2022](date) ạ.
+    - Khoảng [11 h](time) [thứ sáu](date)
+    - Khoảng [2 h](time) [chủ nhật](date)
+    - Mình tới lúc [8 giờ](time) ngày [02/10](date)
+    - Khoảng [2 giờ](time) [thứ 4](date)
+    - Chắc khoảng [8h](time) (thứ 6)(date)
+    - Khoảng [9 giờ](time) [thứ 2](date)
+    - Khoảng [11 giờ](time) [thứ 3](date)
+    - Khoảng [1 giờ](time) [thứ bảy](date)
+- intent: greet
+  examples: |
+    - chào ad
+    - bạn ơi bạn
+    - chị ơi
+    - page ơi
+    - ad ơi
+    - cho mình hỏi
+    - con ơi
+    - chào
+    - cháu ơi
+    - chào garage
+    - chào buổi tối
+    - chào buổi sáng
+    - xin chào bạn
+    - cho tôi hỏi
+    - giúp mình với
+    - xin chào
+    - bạn ơi
+    - cô ơi
+    - ê
+    - alo alo
+    - alo
+    - mình xin chào bạn
+    - hi
+    - anh ơi
+    - chào bot
+    - chào ad nha
