@@ -5,7 +5,23 @@ stories:
   - story: ask_booking_infomation
     steps:
       - intent: ask_booking_info
-      - action: utter_ask_booking_id
+      - action: utter_ask_booking_code
       - intent: give_booking_id
       - action: action_search_booking
+
+  - story: ask_booking_but_user_don't_remember_id
+    steps:
+      - intent: ask_booking_info
+      - action: utter_ask_booking_code
+      - intent: not_remeber_booking_id
+      - action: utten_res_booking_info_without_booking_id
+
+  - story: cancel_booking_with_id
+    steps:
+     - intent: cancel_booking
+     - action: cancel_booking_form
+     - active_loop: cancel_booking_form
+     - active_loop: null
+     - action: action_cancel_booking
+
 

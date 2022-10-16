@@ -260,3 +260,21 @@ nlu:
     - [666f64cf](booking_id)
     - Đây [666f64cf](booking_id) ạ
     - Nè ad [666f64cf](booking_id)
+
+- intent: not_remeber_booking_id
+  examples: |
+    - À mình quên mã đơn của mình rồi có cách nào tra cứu hong 
+    - Mình hong biết mã đơn là gì luôn
+    - Hong nhớ nữa
+    - Hong nhớ mã đơn lắm 
+    - Mình không biết mã đơn ở đâu
+    - Mã đơn đặt lịch kiếm ở đâu vậy
+
+- intent: cancel_booking
+  examples: |
+    - Mình muốn hủy lịch hẹn ạ
+    - Mình muốn hủy đơn đặt hẹn
+    - Giúp mình hủy đơn đặt hẹn với ạ
+    - Hủy giúp mình đơn đặt hẹn
+    - Mình không muốn tiếp tục đơn đặt hẹn nữa
+    - Mình muốn hủy lịch

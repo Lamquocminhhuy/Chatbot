@@ -4,7 +4,12 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import FollowupAction
-from process_date import format_date, process_datetime
+from process_date import process_datetime, process_time, regex_date
+
+
+
+
+
 
 ## Response all services when user ask for all services
 class ActionRecommend(Action):
@@ -153,15 +158,15 @@ class ActionBookingForm(Action):
 
                 if tracker.get_slot("date").strip().lower() == "ngày mai" or tracker.get_slot("date").strip().lower() == "hôm nay" or tracker.get_slot("date").strip().lower() == "bữa nay":
 
-                    date_format = process_datetime.ngaymaihomnay(tracker.get_slot("date"))
+                    date_format = process_datetime.findDayByToken(tracker.get_slot("date"))
 
                 elif tracker.get_slot("date").strip().lower() in dayofweek:
-                    date_format = process_datetime.findDate(tracker.get_slot("date").strip().lower()) 
+                    date_format = process_datetime.findDateOfWeek(tracker.get_slot("date").strip().lower()) 
                 else: 
-                    date_format = format_date.regex_date(tracker.get_slot("date").strip().lower())
+                    date_format = regex_date.regex_date(tracker.get_slot("date").strip().lower())
 
 
-                time_format = process_datetime.process_time(tracker.get_slot("time").strip().lower())
+                time_format = process_time.process_time(tracker.get_slot("time").strip().lower())
 
            
                 booking_data["date"] = date_format[0]
@@ -194,19 +199,47 @@ class ActionSearchBooking(Action):
       
         # print(str(tracker.latest_message['entities'][0]['value']))
         booking_id = str(tracker.latest_message['entities'][0]['value'])
-        print(booking_id + " (hỏi thông tin đơn đặt lịch")
-   
-
-
-        booking_id = "666f64cf"
+        print(booking_id + " hỏi thông tin đơn đặt lịch")
 
         response = requests.get("http://localhost:8000/api/booking/" + booking_id)
         if(response.status_code == 200):
             responseData = response.json()
-            text = "Dạ sau khi tra cứu thì em thấy mình có đơn đặt lịch bên em với thông tin như sau ạ.\n- Tên khách hàng: {}\n- Ngày đặt: {} lúc {} giờ\n- Dịch vụ: {}\n- Email: {}\n- SĐT: {}\n- Trạng thái:{}"
+
+            text = "Dạ sau khi tra cứu thì em thấy mình có đơn đặt lịch bên em với thông tin như sau ạ.\n- Tên khách hàng: {}\n- Ngày đặt: {} lúc {} giờ\n- Email: {}\n- SĐT: {}\n- Trạng thái: {}".format(responseData['user'],responseData['date'],responseData['timeblock'],responseData['email'],responseData['phone_number'],responseData['status'])
         else:
             text = "Sau khi tra cứu thì em không tìm thấy đơn đặt lịch nào của quý khách hết ạ."
 
 
-        dispatcher.utter_message(text.format(responseData['user'],responseData['date'],responseData['timeblock'],responseData['service'],responseData['email'],responseData['phone_number']),responseData['password'],responseData['status'])
+        dispatcher.utter_message(text)
+        return []
+
+
+class ActionCancelBooking(Action):
+
+    def name(self) -> Text:
+        return "action_cancel_booking"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+      
+      
+        # print(str(tracker.latest_message['entities'][0]['value']))    
+        booking_id = str(tracker.get_slot("booking_id") )
+        print(booking_id + " hủy đơn")
+        data = {
+            "status": "Đã hủy"
+        }
+        encodeData = json.dumps(data, indent = 4,ensure_ascii=False).encode('utf-8').decode('unicode-escape')
+        Headers = { "Content-Type":"application/json" }
+        response = requests.post("http://localhost:8000/api/update/booking/" + booking_id, data = encodeData, headers=Headers)
+        print(response.status_code)
+        if(response.status_code == 200):
+     
+            text = "Dạ sau khi tra cứu thì em đã hủy đơn giúp mình rồi ạ. Nếu quý khách cần hỗ trợ gì thêm thì cứ nhắn em hoặc gọi qua sđt 0123456789 ạ."
+        else:
+            text = "Sau khi tra cứu thì em không tìm thấy đơn đặt lịch nào của quý khách hết ạ."
+
+
+        dispatcher.utter_message(text)
         return []

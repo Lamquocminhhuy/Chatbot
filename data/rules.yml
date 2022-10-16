@@ -63,7 +63,6 @@ rules:
       - action: utter_response_for_deny
 
   - rule: booking_form
-    
     steps:
       - intent: request_book
       - action: booking_form

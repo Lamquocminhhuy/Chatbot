@@ -1,8 +1,13 @@
 version: '2.0'
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+
 intents:
+
+- cancel_booking
+- not_remeber_booking_id
 - give_booking_id
 - ask_booking_info
 - name
@@ -32,7 +37,11 @@ entities:
 - price
 - service
 - time
+
 slots:
+  booking_id:
+    type: text
+    influence_conversation: false
   name:
     type: text
     influence_conversation: false
@@ -51,8 +60,18 @@ slots:
   phone:
     type: text
     influence_conversation: false
+
 responses:
+  utter_done_cancel:
+  - text: Dạ sau khi tra cứu thì em đã hủy đơn giúp mình rồi ạ. Nếu quý khách cần hỗ trợ gì thêm thì cứ nhắn em hoặc gọi qua sđt 0123456789 ạ.
+
+  utten_res_booking_info_without_booking_id:
+  - text: |
+       Dạ vậy quý khách có thể tìm mã đơn đặt lịch trong email xác nhận mà bên mình đã gửi á.
+       Nếu không quý khách có thể liên hệ với sđt 0123456789 để nhân viên quản lí đơn hàng có thể tìm lại mã đơn cho quý khách nha.
   utter_ask_booking_id:
+  - text: Dạ quý khách cho em xin mã đơn đặt lịch để em hủy giúp cho ạ.
+  utter_ask_booking_code:
   - text: Quý khách cho em xin mã đơn đặt lịch để em tra cứu cho ạ.
   utter_thank:
   - text: Dạ, em cảm ơn quý khách.
@@ -97,6 +116,7 @@ actions:
 - action_ask_services
 - action_booking_submit
 - action_search_booking
+- action_cancel_booking
 
 forms:
   booking_form:
@@ -119,4 +139,10 @@ forms:
       time:
       - type: from_entity
         entity: time
+
+  cancel_booking_form:
+    required_slots:
+      booking_id:
+      - type: from_entity
+        entity: booking_id
   

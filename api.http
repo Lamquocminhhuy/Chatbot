@@ -9,3 +9,12 @@ Content-Type: application/json
     "service": 2, 
     "date": "2022-10-05"
 }
+
+
+### Update a booking
+POST  http://localhost:8000/api/update/booking/666f64cf  
+Content-Type: application/json
+
+{
+    "status": "Đã xử lí"
+}
