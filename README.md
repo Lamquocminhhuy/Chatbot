@@ -4,6 +4,7 @@ With Rasa Open Source
 ## Commands
 
 ```
+rasa train
 rasa run actions
 rasa shell 
 rasa run -m models --enable-api --cors "*" --debug

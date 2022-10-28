@@ -37,12 +37,12 @@ import requests
 # r = requests.post("https://canthogarage.pythonanywhere.com/api/booking/", data = json.dumps(booking_data, indent = 4))
 # print(r.text)
 
-data = {
-    "status" : "Đã hủy"
-}
+# data = {
+#     "status" : "Đã hủy"
+# }
 
-encodeData = json.dumps(data, indent = 4,ensure_ascii=False).encode('utf-8').decode('unicode-escape')
-print(encodeData)
-Headers = { "Content-Type":"application/json" }
-response = requests.post("http://localhost:8000/api/update/booking/666f64cf", data = encodeData, headers=Headers)
-print(response.status_code)        
+# encodeData = json.dumps(data, indent = 4,ensure_ascii=False).encode('utf-8').decode('unicode-escape')
+# print(encodeData)
+# Headers = { "Content-Type":"application/json" }
+# response = requests.post("http://localhost:8000/api/update/booking/666f64cf", data = encodeData, headers=Headers)
+# print(response.status_code)        

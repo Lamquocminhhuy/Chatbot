@@ -21,8 +21,6 @@ def findDayByToken(token):
         date = today + datetime.timedelta(days=1)
     return [str(date)] 
 
-
-
 def generate_daylist():
     daylist = []
     today = datetime.date.today()
@@ -47,7 +45,7 @@ def generate_daylist():
             daylist.append(day)
 
     return daylist
-    
+
 def findDateOfWeek(nameOfDay):
     daylist = generate_daylist()
     data = nameOfDay.upper()

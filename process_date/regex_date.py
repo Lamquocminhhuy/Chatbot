@@ -6,7 +6,6 @@ REGEX_DATE = r"(3[01]|[12][0-9]|0?[1-9])[-\/:|](1[0-2]|0?[1-9])([-\/:|](2[0-1][0
 REGEX_DAY_MONTH = r"(3[01]|[12][0-9]|0?[1-9])[-\/:|](1[0-2]|0?[1-9])"
 REGEX_MONTH_YEAR = r"(1[0-2]|0?[1-9])([-\/:|](2[0-1][0-9][0-9]))"
 
-## This method use for convert date when call api post booking
 def regex_date(msg, timezone="Asia/Ho_Chi_Minh"):
     ''' use regex to capture date string format '''
 

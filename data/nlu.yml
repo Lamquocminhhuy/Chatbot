@@ -260,6 +260,7 @@ nlu:
     - [666f64cf](booking_id)
     - Đây [666f64cf](booking_id) ạ
     - Nè ad [666f64cf](booking_id)
+    - đây ạ [913affcb](booking_id)
 
 - intent: not_remeber_booking_id
   examples: |
