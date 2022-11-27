@@ -1,6 +1,5 @@
 version: "2.0"
 nlu:
-
 - intent: name
   examples: |
     - Tên của mình là [Khưu Nguyễn Hoàng Nam](name)
@@ -224,7 +223,6 @@ nlu:
     - Cỡ [10 giờ](time) [hôm nay](date) mình đến ạ
     - Cỡ [8 giờ](time) [bữa nay](date) mình đến nha
     - Mình đến lúc [9h](time) [bữa nay](date) nha
-
 - intent: out_of_the_box
   examples: |
     - 1 + 1 bằng mấy?
@@ -246,14 +244,12 @@ nlu:
     - tui hỏng có muốn đâu
     - ai mà thèm
     - không thích nhe
-
 - intent: ask_booking_info
   examples: |
     - Cho mình tra cứu thông tin đơn đặt lịch ạ
     - Mình muốn tra cứu thông tin đơn đặt lịch ạ
     - Tra cứu thông tin đặt lịch
     - Tra cứu trạng thái đơn đặt lịch của mình
-
 - intent: give_booking_id
   examples: |
     - Mã đơn của mình là [666f64cf](booking_id)
@@ -261,7 +257,6 @@ nlu:
     - Đây [666f64cf](booking_id) ạ
     - Nè ad [666f64cf](booking_id)
     - đây ạ [913affcb](booking_id)
-
 - intent: not_remeber_booking_id
   examples: |
     - À mình quên mã đơn của mình rồi có cách nào tra cứu hong 
@@ -270,7 +265,6 @@ nlu:
     - Hong nhớ mã đơn lắm 
     - Mình không biết mã đơn ở đâu
     - Mã đơn đặt lịch kiếm ở đâu vậy
-
 - intent: cancel_booking
   examples: |
     - Mình muốn hủy lịch hẹn ạ

@@ -5,63 +5,50 @@ rules:
     steps:
       - intent: greet
       - action: utter_greet
-
   - rule: Goodbye
     steps:
       - intent: goodbye
       - action: utter_goodbye
-  
   - rule: Thanks
     steps:  
       - intent: thank
-      - action: utter_thank
-
+      - action: utter_than
   - rule: I'm Rasa
     steps:
       - intent: bot_challenge
       - action: utter_iamabot
-
   - rule: out-of-scope
     steps:
       - intent: out_of_the_box
       - action: utter_out_of_scope
-
   - rule: ask_service
     steps:
       - intent: ask_service
       - action: action_ask_services
-
   - rule: ask_price
     steps:
       - intent: ask_price
       - action: action_ans_price
-
   - rule: User want advise
     steps:
       - intent: ask_advise
       - action: utter_res_advise
-
-
   - rule: ask_worktime
     steps:
       - intent: ask_worktime
       - action: utter_ans_worktime
-  
   - rule: ask_service_time
     steps:
       - intent: ask_service_time
       - action: action_ans_service_time
-  
   - rule: ask_service_details
     steps:
       - intent: ask_service_details
       - action: action_ans_service_detail
-  
   - rule: user_don't_want_chat_anymore
     steps:
       - intent: deny
       - action: utter_response_for_deny
-
   - rule: booking_form
     steps:
       - intent: request_book
